@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  madmd:
+    build: .
+    container_name: madmd
+    ports:
+      - "8421:8421"
+    restart: unless-stopped
+    volumes:
+      - ./data:/usr/src/app/data  # Optional: persist data if needed
