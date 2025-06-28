@@ -1,73 +1,128 @@
-# MadMD - Markdown Normalizer PWA
+# MadMD - Markdown Editor
 
-A Progressive Web App for normalizing and editing Markdown files, available as both a web app and native desktop application.
+A fast, lightweight markdown editor available as both a native desktop app and Docker-based web service. Features live preview, syntax highlighting, and seamless file handling.
 
-## Features
-- Markdown file normalization
-- Live preview with syntax highlighting
-- PWA support for mobile devices
-- Native desktop app for Mac, Windows, and Linux
-- Lightweight Docker deployment
-- Easy one-click installation
+## 🚀 Quick Start
 
-## Download Desktop App
+### Desktop App (Recommended for personal use)
 
-### [⬇️ Download MadMD for Mac](https://pzep1.github.io/madmd/)
-*Direct download link available on the download page*
+**[⬇️ Download MadMD Desktop](https://github.com/pzep1/madmd/releases/tag/v1.0.0)**
 
-The desktop app features:
-- Double-click any .md file to open
-- Native file system access
-- Keyboard shortcuts (⌘S to save, ⌘O to open)
-- Works completely offline
+Available for macOS (Windows and Linux coming soon). The desktop app features:
+- ✅ Double-click any `.md` file to edit
+- ✅ Native file system integration  
+- ✅ Keyboard shortcuts (⌘S to save, ⌘O to open)
+- ✅ Works completely offline
+- ✅ Set as default markdown editor
 
-## Web Version - Quick Install on Raspberry Pi (or any Linux server)
+### Web Version (For servers/remote access)
+
+Deploy MadMD on any Linux server or Raspberry Pi with one command:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/pzep1/madmd/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/pzep1/madmd/main/quick-install.sh | bash
 ```
 
-Or download and review first:
-```bash
-wget https://raw.githubusercontent.com/pzep1/madmd/main/install.sh
-chmod +x install.sh
-./install.sh
-```
+The web version provides:
+- 🌐 Access from any device on your network
+- 📱 Progressive Web App - install on mobile
+- 🐳 Lightweight Docker container
+- 🔄 Auto-restart on reboot
 
-## Manual Installation
+## 📋 Features
+
+- **Live Preview** - See formatted markdown as you type
+- **Syntax Highlighting** - Beautiful code blocks with highlight.js
+- **Clean Interface** - Distraction-free split-pane editor
+- **GitHub Styling** - Familiar markdown rendering
+- **Improved Readability** - Enhanced typography and spacing
+
+## 🖥️ Desktop Installation
+
+1. Download the `.dmg` file from [releases](https://github.com/pzep1/madmd/releases/tag/v1.0.0)
+2. Open the DMG and drag MadMD to Applications
+3. Right-click MadMD and select "Open" (first time only)
+4. To set as default for `.md` files:
+   - Right-click any .md file
+   - Get Info (⌘I)
+   - Change "Open with" to MadMD
+   - Click "Change All..."
+
+## 🐳 Server Installation
 
 ### Prerequisites
-- Docker installed on your system
-- Docker Compose (optional but recommended)
+- Docker installed on your server
+- Port 8421 available
 
-### Using Docker Compose
+### Method 1: Quick Install
+```bash
+curl -sSL https://raw.githubusercontent.com/pzep1/madmd/main/quick-install.sh | bash
+```
+
+### Method 2: Docker Compose
 ```bash
 git clone https://github.com/pzep1/madmd.git
 cd madmd
 docker-compose up -d
 ```
 
-### Using Docker
+### Method 3: Docker Run
+```bash
+docker run -d \
+  --name madmd \
+  --restart unless-stopped \
+  -p 8421:8421 \
+  ghcr.io/pzep1/madmd:latest
+```
+
+## 🔧 Development
+
+### Run locally
 ```bash
 git clone https://github.com/pzep1/madmd.git
 cd madmd
-docker build -t madmd:latest .
-docker run -d --name madmd --restart unless-stopped -p 8421:8421 madmd:latest
-```
-
-## Access
-- Open your browser to `http://YOUR_SERVER_IP:8421`
-- Add to home screen on mobile for PWA functionality
-
-## Configuration
-- Default port: 8421
-- To change the port, edit `docker-compose.yml` or use `-p` flag with docker run
-
-## Development
-```bash
 npm install
-npm start
+npm start  # Runs Electron app
 ```
 
-## License
-MIT
+### Run web server
+```bash
+npm run server  # Starts Express server on port 8421
+```
+
+### Build desktop app
+```bash
+npm run build-mac    # macOS
+npm run build-win    # Windows  
+npm run build-linux  # Linux
+```
+
+## 📱 PWA Installation
+
+When running the web version:
+1. Open `http://YOUR_SERVER_IP:8421` in mobile browser
+2. Add to Home Screen
+3. Launch as standalone app
+
+## 🛠️ Configuration
+
+- **Port**: 8421 (configurable in docker-compose.yml)
+- **Data**: Files remain on your local system
+- **Updates**: Pull latest Docker image or download new release
+
+## 📄 License
+
+MIT License - See [LICENSE](LICENSE) file for details
+
+## 🤝 Contributing
+
+Contributions welcome! Please feel free to submit a Pull Request.
+
+## 📞 Support
+
+- [Report issues](https://github.com/pzep1/madmd/issues)
+- [View releases](https://github.com/pzep1/madmd/releases)
+
+---
+
+Made with ❤️ for the markdown community

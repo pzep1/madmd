@@ -23,13 +23,16 @@ function createWindow() {
   // Load the index.html file
   mainWindow.loadFile('index.html');
 
-  // Open file if app was launched with one
-  if (process.argv.length >= 2) {
-    const filePath = process.argv[process.argv.length - 1];
-    if (filePath.endsWith('.md') && fs.existsSync(filePath)) {
-      openFile(filePath);
+  // Wait for window to be ready before opening files
+  mainWindow.webContents.on('did-finish-load', () => {
+    // Open file if app was launched with one
+    if (process.argv.length >= 2) {
+      const filePath = process.argv[process.argv.length - 1];
+      if (filePath.endsWith('.md') && fs.existsSync(filePath)) {
+        openFile(filePath);
+      }
     }
-  }
+  });
 }
 
 function openFile(filePath) {
@@ -199,11 +202,19 @@ app.on('activate', () => {
 app.on('open-file', (event, path) => {
   event.preventDefault();
   
-  if (mainWindow) {
-    openFile(path);
-  } else {
-    app.whenReady().then(() => {
+  // Store the path to open later if window isn't ready
+  if (!mainWindow) {
+    app.once('ready', () => {
+      createWindow();
+      mainWindow.webContents.once('did-finish-load', () => {
+        openFile(path);
+      });
+    });
+  } else if (mainWindow.webContents.isLoading()) {
+    mainWindow.webContents.once('did-finish-load', () => {
       openFile(path);
     });
+  } else {
+    openFile(path);
   }
 });
