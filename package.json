@@ -26,15 +26,17 @@
         },
         "files": [
             "**/*",
-            "!node_modules/express/**/*",
-            "!server.js",
-            "!server-*.js",
+            "!node_modules/**/*",
+            "!dist/**/*",
+            "!.git/**/*",
+            "!.github/**/*",
+            "!server*.js",
             "!Dockerfile",
             "!docker-compose.yml",
             "!*.sh",
-            "!.git",
-            "!.github",
-            "!DEPLOYMENT.md"
+            "!DEPLOYMENT.md",
+            "!sw.js",
+            "!manifest.json"
         ],
         "mac": {
             "category": "public.app-category.productivity",

@@ -12,8 +12,8 @@ A Progressive Web App for normalizing and editing Markdown files, available as b
 
 ## Download Desktop App
 
-### [⬇️ Download MadMD for Mac](https://github.com/pzep1/madmd/releases/latest)
-*Also available for Windows and Linux in releases*
+### [⬇️ Download MadMD for Mac](https://pzep1.github.io/madmd/)
+*Direct download link available on the download page*
 
 The desktop app features:
 - Double-click any .md file to open
