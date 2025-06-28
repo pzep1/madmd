@@ -2,12 +2,69 @@
     "name": "madmd",
     "version": "1.0.0",
     "description": "A simple markdown editor PWA",
-    "main": "server.js",
+    "main": "main.js",
     "scripts": {
-        "start": "node server.js",
-        "dev": "node server.js"
+        "start": "electron .",
+        "dev": "electron .",
+        "server": "node server.js",
+        "build-mac": "electron-builder --mac",
+        "build-win": "electron-builder --win",
+        "build-linux": "electron-builder --linux"
     },
     "dependencies": {
         "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "electron": "^37.1.0",
+        "electron-builder": "^26.0.12"
+    },
+    "build": {
+        "appId": "com.madmd.app",
+        "productName": "MadMD",
+        "directories": {
+            "output": "dist"
+        },
+        "files": [
+            "**/*",
+            "!node_modules/express/**/*",
+            "!server.js",
+            "!server-*.js",
+            "!Dockerfile",
+            "!docker-compose.yml",
+            "!*.sh",
+            "!.git",
+            "!.github",
+            "!DEPLOYMENT.md"
+        ],
+        "mac": {
+            "category": "public.app-category.productivity",
+            "icon": "icons/icon.png",
+            "fileAssociations": [
+                {
+                    "ext": "md",
+                    "name": "Markdown Document",
+                    "role": "Editor"
+                },
+                {
+                    "ext": "markdown",
+                    "name": "Markdown Document",
+                    "role": "Editor"
+                }
+            ]
+        },
+        "dmg": {
+            "contents": [
+                {
+                    "x": 110,
+                    "y": 150
+                },
+                {
+                    "x": 440,
+                    "y": 150,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        }
     }
 }

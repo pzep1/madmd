@@ -25,4 +25,94 @@ body {
 
 #preview {
     border-left: 1px solid #ddd;
+    background-color: #ffffff;
+    color: #2c3e50;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+#preview h1, #preview h2, #preview h3, #preview h4, #preview h5, #preview h6 {
+    color: #1a1a1a;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+#preview h1 {
+    font-size: 2em;
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 0.3em;
+}
+
+#preview h2 {
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.2em;
+}
+
+#preview p {
+    margin-bottom: 16px;
+}
+
+#preview code {
+    background-color: #f6f8fa;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+    font-size: 0.9em;
+}
+
+#preview pre {
+    background-color: #f6f8fa;
+    padding: 16px;
+    border-radius: 6px;
+    overflow-x: auto;
+}
+
+#preview pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+#preview blockquote {
+    margin: 0;
+    padding-left: 16px;
+    border-left: 4px solid #dfe2e5;
+    color: #6a737d;
+}
+
+#preview a {
+    color: #0969da;
+    text-decoration: none;
+}
+
+#preview a:hover {
+    text-decoration: underline;
+}
+
+#preview ul, #preview ol {
+    padding-left: 32px;
+    margin-bottom: 16px;
+}
+
+#preview li {
+    margin-bottom: 4px;
+}
+
+#preview table {
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+#preview table th, #preview table td {
+    border: 1px solid #dfe2e5;
+    padding: 6px 13px;
+}
+
+#preview table th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+}
+
+#preview table tr:nth-child(even) {
+    background-color: #f6f8fa;
 }
